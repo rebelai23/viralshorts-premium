@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0F111E;
+  --surface: rgba(24, 27, 43, 0.7);
+  --surface-2: rgba(32, 36, 55, 0.9);
+  --primary: #00C2FF;
+  --primary-glow: rgba(0, 194, 255, 0.18);
+  --accent: #FF0080;
+  --text: #E0E3ED;
+  --text-muted: #8F9BB3;
+  --border: rgba(0, 194, 255, 0.15);
+  --radius: 10px;
+  --font-heading: 'Clash Display', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text);
+}
+
+.scrolled {
+  background-color: rgba(15, 17, 30, 0.8); /* Slightly more opaque when scrolled */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px -1px rgba(0, 194, 255, 0.1);
+}
+
+.hero-background-gradient {
+  background: radial-gradient(circle at top left, rgba(0, 194, 255, 0.15) 0%, transparent 30%),
+              radial-gradient(circle at bottom right, rgba(255, 0, 128, 0.15) 0%, transparent 30%),
+              var(--bg);
+}
+
+/* Custom scrollbar for a darker, sleeker look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--surface-2);
+  border-radius: 4px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+/* Animations */
+@keyframes neon-glow {
+  0% { text-shadow: 0 0 5px var(--primary-glow); }
+  50% { text-shadow: 0 0 15px var(--primary-glow), 0 0 25px var(--primary-glow); }
+  100% { text-shadow: 0 0 5px var(--primary-glow); }
+}
+
+.animate-neon-glow {
+  animation: neon-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-border {
+  0% { border-color: rgba(0, 194, 255, 0.15); }
+  50% { border-color: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
+  100% { border-color: rgba(0, 194, 255, 0.15); }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-in-out infinite alternate;
+}
+
+@keyframes float-mockup {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(-1deg); }
+}
+
+.animate-float-mockup {
+  animation: float-mockup 4s ease-in-out infinite;
+}
+
+.button-glow-hover:hover {
+  box-shadow: var(--button-glow);
+}
+.card-glow-hover:hover {
+  box-shadow: var(--card-hover-glow);
+  transform: translateY(-5px);
+}
